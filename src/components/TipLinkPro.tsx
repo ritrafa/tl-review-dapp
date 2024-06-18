@@ -1,3 +1,6 @@
+export{}
+
+/*
 import bs58 from 'bs58';
 import { FC, useCallback } from 'react';
 import { notify } from "../utils/notifications";
@@ -11,6 +14,8 @@ interface CampaignFindParams {
     active: boolean;
   }
 */
+
+/*
 export const CreateTipLinkPro: FC = () => {
     const onClick = useCallback(async () => {
         try {
@@ -81,3 +86,5 @@ export const CreateTipLinkPro: FC = () => {
         </div>
     );
 };
+
+*/
