@@ -3,8 +3,8 @@ import { FC } from "react";
 import { SignMessage } from '../../components/SignMessage';
 import { SendTransaction } from '../../components/SendTransaction';
 import { SendVersionedTransaction } from '../../components/SendVersionedTransaction';
-//import { CreateTipLink} from '../../components/TipLinkNew';
-//import { CreateTipLinkPro} from '../../components/TipLinkPro';
+import { CreateTipLink} from '../../components/TipLinkNew';
+import { CreateTipLinkPro} from '../../components/TipLinkPro';
 
 export const BasicsView: FC = ({ }) => {
 
@@ -19,7 +19,8 @@ export const BasicsView: FC = ({ }) => {
           <SignMessage />
           <SendTransaction />
           <SendVersionedTransaction />
-
+          <CreateTipLink/>
+          <CreateTipLinkPro/>
         </div>
       </div>
     </div>
