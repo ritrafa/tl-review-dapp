@@ -23,21 +23,21 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
         const client = await TipLinkClient.init(apiKey);
         console.log('TipLinkClient initialized:', client);
+
         const campaign = await client.campaigns.create({
           name: "Campaign test",
           description: "longer string description",
-          imageUrl: "",
+          imageUrl: "http://localhost:3000/_next/image?url=%2Fss.png&w=640&q=100",
           active: true,
         });
         console.log('Campaign created:', campaign);
 
         const tp = await TipLink.create();
-        const tp2 = await TipLink.create();
-        console.log('TipLinks created:', tp, tp2);
+        console.log('TipLinks created:', tp);
 
         // TODO: Fund your tiplinks here using: tp.keypair
 
-        const tiplinks = [tp, tp2];
+        const tiplinks = [tp];
         await campaign.addEntries(tiplinks);
         console.log('Entries added to campaign');
 
