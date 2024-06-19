@@ -2,7 +2,7 @@
 const nextConfig = {
   reactStrictMode: true,
   env: {
-    NEXT_PUBLIC_TL_API: process.env.NEXT_PUBLIC_TL_API,
+    NEXT_PUBLIC_TIPLINK_API_KEY: process.env.NEXT_PUBLIC_TIPLINK_API_KEY
   },
 }
 
