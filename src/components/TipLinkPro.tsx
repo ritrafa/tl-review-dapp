@@ -16,13 +16,12 @@ export const CreateTipLinkPro: FC = () => {
     const onClick = useCallback(async () => {
         try {
 
-            
-
-            const tlClient = new TipLinkClient(process.env.TL_API);
+            console.log(process.env.NEXT_PUBLIC_TL_API);
+            const tlClient = new TipLinkClient(process.env.NEXT_PUBLIC_TL_API);
             console.log(tlClient);
             
             const createCampaignAndDispenserExample = async () => {
-                const client = await TipLinkClient.init(process.env.TL_API);
+                const client = await TipLinkClient.init(process.env.NEXT_PUBLIC_TL_API);
                 const campaign = await client.campaigns.create({
                   name: "Campaign test",
                   description: "longer string description",
