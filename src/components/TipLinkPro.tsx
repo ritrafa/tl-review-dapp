@@ -2,22 +2,33 @@ import bs58 from 'bs58';
 import { FC, useCallback } from 'react';
 import { notify } from "../utils/notifications";
 import { TipLink, TipLinkClient } from '@tiplink/api';
+/*
+interface CampaignFindParams {
+    id?: number;
+    name: string;
+    description: string;
+    imageUrl: string;
+    active: boolean;
+  }
+*/
 
 export const CreateTipLinkPro: FC = () => {
     const onClick = useCallback(async () => {
         try {
-            const createCampaignAndDispenserExample = async () => {
-                const API_URL_BASE = '/api';
 
+            console.log(process.env.NEXT_PUBLIC_TL_API);
+            const tlClient = new TipLinkClient(process.env.NEXT_PUBLIC_TL_API);
+            console.log(tlClient);
+            
+            const createCampaignAndDispenserExample = async () => {
                 const client = await TipLinkClient.init(process.env.NEXT_PUBLIC_TL_API);
-                console.log(client);
                 const campaign = await client.campaigns.create({
                   name: "Campaign test",
                   description: "longer string description",
                   imageUrl: '',
                   active: true
                 });
-                console.log(campaign);
+              
                 const tp = await TipLink.create();
                 const tp2 = await TipLink.create();
               
@@ -39,6 +50,11 @@ export const CreateTipLinkPro: FC = () => {
               });
             
             
+            //.create().then(tiplink => {
+           // console.log("link: ", tiplink.url.toString());
+            //console.log("publicKey: ", tiplink.keypair.publicKey.toBase58());
+           // return tiplink;
+          //});
             notify({ type: 'success', message: `TipLink Creation successful!`});
         } catch (error: any) {
             notify({ type: 'error', message: `TipLink Creation failed!`, description: error?.message });
